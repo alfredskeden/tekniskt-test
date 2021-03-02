@@ -15,7 +15,7 @@ npm run test
 5 testar med mocha som visar på olika sätta att metoden funkar.
 
 **Eng:**
-5 tests with mocha that shows that the methods works.
+5 tests with mocha that shows that the method works.
 
 -------
 Anagram tests:
