@@ -16,6 +16,7 @@ npm run test
 
 **Eng:**
 5 tests with mocha that shows that the methods works.
+
 -------
 Anagram tests:
 -    ✓ Stressed and desserts should show true
