@@ -7,7 +7,7 @@ The method isAnagram(string, string) takes two parameters of type string that ch
 ```
 cd /problem_1
 npm install
-npm run dev
+npm run build
 npm run test
 ```
 ## Tester
