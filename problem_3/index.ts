@@ -1,10 +1,14 @@
-class calc {
+import { Calculator } from './calculator'
+
+class calc extends Calculator {
   /** function that takes a string and evaluates its mathematical expression and returns it as a number */
   evaluate(calc: string): number {
 
+    this.addExpression(calc);
+
     /** returns 0 if string does not exist or is empty or first cell is an operator */
     if (!calc?.length || this.checkIfOperator(calc[0])) {
-      return 0;
+      return this.addEvaluation(0);
     }
 
     /** cleaning the string */
@@ -18,7 +22,7 @@ class calc {
     })
 
     /** recursion calculation to get the correct answer from expression array */
-    return this.level3(newCalcArray);
+    return this.addEvaluation(this.level3(newCalcArray));
   }
 
   /** removes all spaces from a string */
@@ -85,20 +89,22 @@ class calc {
 
 const calculator: calc = new calc();
 
-console.log(`"" is not valid and returns: `, calculator.evaluate(""));
-console.log(`undefined is not valid and returns: `, calculator.evaluate(undefined));
-console.log(`"+3" is not valid and returns: `, calculator.evaluate("+3"));
-console.log(`"2+30" = 32: is `, calculator.evaluate("2+30"));
-console.log(`"2 * 3" = 6: is `, calculator.evaluate("2 * 3"));
-console.log(`"2 -3" = -1: is `, calculator.evaluate("2 -3"));
-console.log(`"2 / 3" = 0.6666666666666: is `, calculator.evaluate("2 / 3"));
+calculator.evaluate("");
+calculator.evaluate(undefined);
+calculator.evaluate("+3");
+calculator.evaluate("2+30");
+calculator.evaluate("2 * 3");
+calculator.evaluate("2 -3");
+calculator.evaluate("2 / 3");
 // Level 2
-console.log(`"2+30+4" = 36: is `, calculator.evaluate("2+30+4"));
-console.log(`"2 - 3 + 4 + 15" = 18: is `, calculator.evaluate("2 - 3 + 4 + 15"));
-console.log(`"2 * 3 * 4"= 24: is `, calculator.evaluate("2 * 3 * 4"));
-console.log(`"2 * 3 / 4 * 20"= 30: is `, calculator.evaluate("2 * 3 / 4 * 20"));
+calculator.evaluate("2+30+4");
+calculator.evaluate("2 - 3 + 4 + 15");
+calculator.evaluate("2 * 3 * 4");
+calculator.evaluate("2 * 3 / 4 * 20");
 // level 3
-console.log(`"2+3*40" = 122: is `, calculator.evaluate("2+3*40"));
-console.log(`"2 * 3 + 4" = 10: is `, calculator.evaluate("2 * 3 + 4"));
-console.log(`"2 / 3 + 4 - 1" = 3.6666666666667: is `, calculator.evaluate("2 / 3 + 4 - 1"));
-console.log(`"2 - 3 * 4" = -10: is `, calculator.evaluate("2 - 3 * 4"));
+calculator.evaluate("2+3*40");
+calculator.evaluate("2 * 3 + 4");
+calculator.evaluate("2 / 3 + 4 - 1");
+calculator.evaluate("2 - 3 * 4");
+
+calculator.consoleAllAnswers();
